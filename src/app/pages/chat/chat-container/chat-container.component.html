@@ -1,0 +1,6 @@
+<div class="messages">
+  <div *ngFor="let msg of messages" class="messages__row" [ngClass]="{'messages__right': msg.isYours}">
+      <tk-message [message]="msg"></tk-message>
+  </div>
+</div>
+

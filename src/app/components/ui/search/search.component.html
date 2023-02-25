@@ -1,0 +1,6 @@
+<label [class]="getClasses()">
+  <div>
+    <tk-icon class="icon" width="24" height="24" item="search"></tk-icon>
+  </div>
+  <input (input)="changeValue($event)" (blur)="markAsTouched()" class="search" [placeholder]="placeholder"/>
+</label>

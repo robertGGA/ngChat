@@ -1,0 +1,62 @@
+<div [@slideInOut]="getState()" *ngLet="isOpen$ | async as isCollapsed"
+     [ngClass]="isCollapsed ? 'sidebar-collapsed' : ''" class="sidebar">
+  <button [ngClass]="isCollapsed ? 'arrow-reversed' : ''" tkToggleUncover (click)="toggle()" class="toggle">
+    <tk-icon width="24" height="24" item="arrow"></tk-icon>
+  </button>
+  <div class="user-info__container">
+    <a class="link-profile" routerLink="/profile">
+      <img src="assets/images/someuser.png"/>
+    </a>
+    <span class="user-info" *ngIf="!isCollapsed">
+      <p>
+        John Doe
+      </p>
+      <p>
+        Status
+      </p>
+    </span>
+  </div>
+  <nav class="nav">
+    <div>
+      <tk-search [formControl]="searchInput" placeholder="Search..."></tk-search>
+      <a class="link" routerLink="/chats" routerLinkActive="link-active">
+        <tk-icon width="24" height="24" item="settings"></tk-icon>
+        <span *ngIf="!isCollapsed">
+        Chats
+      </span>
+      </a>
+      <a class="link" routerLink="/friends" routerLinkActive="link-active">
+        <tk-icon width="24" height="24" item="friends"></tk-icon>
+        <span *ngIf="!isCollapsed">
+        Friends
+      </span>
+      </a>
+      <a class="link" routerLink="/analytics" routerLinkActive="link-active">
+        <tk-icon width="24" height="24" item="analytics"></tk-icon>
+        <span *ngIf="!isCollapsed">
+        Analytics
+      </span>
+      </a>
+      <a class="link" routerLink="/settings" routerLinkActive="link-active">
+        <tk-icon width="24" height="24" item="settings"></tk-icon>
+        <span *ngIf="!isCollapsed">
+        Settings
+      </span>
+      </a>
+    </div>
+    <div>
+      <a class="link" routerLink="/help" routerLinkActive="link-active">
+        <tk-icon width="24" height="24" item="help"></tk-icon>
+        <span *ngIf="!isCollapsed">
+        Help Center
+      </span>
+      </a>
+      <button class="link">
+        <tk-icon width="24" height="24" item="exit"></tk-icon>
+        <span *ngIf="!isCollapsed">
+        Log Out
+      </span>
+      </button>
+    </div>
+  </nav>
+</div>

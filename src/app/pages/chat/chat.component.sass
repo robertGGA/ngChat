@@ -1,0 +1,68 @@
+@import "src/app/styles/mixins"
+
+\:host
+  min-height: 100vh
+  display: -ms-grid
+  display: grid
+  -ms-grid-rows: auto 1fr auto
+  grid-template-rows: auto 1fr auto
+
+.header
+
+  &__wrapper
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+    @include width-619
+
+.chat
+
+  &__title
+    text-align: center
+    display: flex
+    flex-direction: column
+    padding: 17px 0 15px 0
+
+  &__time
+    margin-top: 4px
+    font-size: 12px
+
+  &__date
+    text-align: center
+    margin-top: 17px
+
+
+.input
+  width: 80%
+  height: 100%
+  padding: 16px 0
+  border: none
+  outline: none
+  margin-left: 12px
+  box-shadow: inset 0px 1px 0px #E5E5EA
+
+
+  &__wrapper
+    @extend .header__wrapper
+    button
+      border: none
+      background: none
+      display: flex
+      opacity: 0.6
+      transition: 0.3s
+
+      &:hover
+        transition: opacity 200ms
+        opacity: 1
+
+  &__menu
+    display: flex
+    align-items: center
+    width: 100%
+
+.main
+  @include width-619
+  display: flex
+  flex-direction: column
+  align-items: center

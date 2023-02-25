@@ -1,0 +1,45 @@
+<ng-container *ngIf="message.isYours; else friend">
+  <div [@messageCreateAnimation]="'void'" [class.message__wrapper_their]="" class="message__wrapper">
+    <p class="message">
+      {{message.body}}
+    </p>
+
+    <div class="message__time">
+      <p>
+        {{message.time}}
+      </p>
+      <div class="icon__wrapper">
+        <tk-icon [width]="10" [height]="10" item="check"></tk-icon>
+        <div class="icon">
+          <tk-icon [width]="10" [height]="10" item="check"></tk-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #friend>
+  <div [@messageCreateAnimation]=""  class="message__wrapper_their">
+    <div>
+      <div class="message__user">
+        <p class="message__user_name">
+          {{message.user.name}}
+        </p>
+
+        <p class="message__user_position">
+          {{message.user.position}}
+        </p>
+      </div>
+
+      <p class="message">
+        {{message.body}}
+      </p>
+    </div>
+
+    <div class="message__time">
+      <p>
+        {{message.time}}
+      </p>
+    </div>
+  </div>
+</ng-template>

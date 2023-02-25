@@ -1,0 +1,124 @@
+@import 'src/app/styles/mixins.sass'
+
+.sidebar
+  position: fixed
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  padding: 24px 16px
+  background: white
+  border-right: 1px solid $c-palettes-indigo-50
+  min-height: 100vh
+  max-width: 232px
+  height: 100%
+  transition: 0.2s ease
+
+  &-collapsed
+    transition: width 1s ease-in-out
+    width: 80px
+
+  &-link
+
+    &__wrapper
+      display: flex
+      align-items: center
+      justify-content: flex-start
+      transition: 0.2s
+
+      a
+        @include content-16
+        color: white
+
+      &:hover
+        opacity: 0.6
+
+
+  &__icon
+    display: inline
+    fill: none
+    stroke-width: 1
+    color: white
+    margin-right: 5px
+
+.user-info
+  margin-left: 12px
+  align-self: center
+
+  & p
+    @include content-16-inter
+    color: $c-dark-hover-sub
+
+    &:first-child
+      color: $c-light-active
+
+  &__container
+    display: flex
+    align-items: center
+    @include Inter
+
+
+.nav
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  height: 100%
+  width: 100%
+  margin-top: 24px
+
+.link
+  display: flex
+  align-items: center
+  padding: 12px
+  margin-top: 8px
+  color: $c-palettes-indigo-400
+  border-radius: 8px
+  transition: 0.2s ease
+  overflow-x: hidden
+
+  span
+    @include content-16-inter
+    text-transform: uppercase
+    margin-left: 12px
+
+  &:not(.link-active):hover
+    background-color: $c-palettes-indigo-50
+
+  &-active
+    background-color: $c-palettes-indigo-400
+    color: white
+
+  &-profile
+
+    img
+      height: 48px
+      width: 48px
+      border-radius: 50%
+      transition: 0.3s
+      &:hover
+        filter: brightness(70%)
+
+
+
+button.link
+  border: none
+  width: 100%
+  background: none
+
+.toggle
+  display: flex
+  align-items: center
+  background: white
+  border: 1px solid $c-palettes-indigo-50
+  border-radius: 50%
+  position: absolute
+  right: -14px
+  transition: 0.3s
+
+  &:hover
+    background: $c-palettes-indigo-50
+
+.arrow
+  &-reversed
+    transform: rotate(180deg)
+
+

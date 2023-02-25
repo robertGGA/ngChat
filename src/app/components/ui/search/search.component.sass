@@ -1,0 +1,35 @@
+@import 'src/app/styles/mixins.sass'
+
+.search
+  border: none
+  background: none
+  width: 100%
+  outline: none
+  @include content-16-inter
+  color: currentColor
+
+  &::placeholder
+    text-transform: uppercase
+    color: currentColor
+
+  &__wrapper
+    display: flex
+    position: relative
+    background: $c-palettes-indigo-50
+    border-radius: 8px
+    padding: 12px
+    color: $c-palettes-indigo-400
+    transition: 0.3s
+
+    &:hover, &:active
+      background: $c-light-active
+      color: white
+
+    div
+      display: flex
+      margin-right: 8px
+
+  &-touched
+    background: $c-light-active
+    color: white
+

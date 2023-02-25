@@ -1,0 +1,7 @@
+<select>
+  <ng-container *ngIf="options.length">
+    <option *ngFor="let item of options">
+      {{item.name}}
+    </option>
+  </ng-container>
+</select>

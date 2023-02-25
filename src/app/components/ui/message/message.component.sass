@@ -1,0 +1,64 @@
+@import "src/app/styles/mixins"
+@import "src/app/styles/variables"
+
+.message
+  padding-right: 56px
+
+  &__user
+    display: flex
+    flex-direction: row
+    align-items: center
+    margin-bottom: 4px
+
+    &_position
+      @include text-xs
+      color: $text-gray
+
+    &_name
+      @include h3
+      margin-right: 10px
+
+
+  &__wrapper
+    width: fit-content
+    border-radius: 8px
+    justify-content: space-between
+    display: flex
+    flex-direction: column
+    min-width: 133px
+    max-width: 315px
+    background-color: $blue-5
+    padding: 4px 6px 7px 8px
+    color: white
+
+
+    &_their
+      @extend .message__wrapper
+      background-color: $gray-1
+      color: $text-grayDark
+
+      & > .message__time
+        color: $text-gray
+
+  &__time
+    white-space: nowrap
+    display: flex
+    justify-content: right
+    align-items: flex-end
+    @include text-xs
+
+.icon
+  position: relative
+  right: 5px
+
+  &__wrapper
+    display: flex
+    flex-direction: row
+    align-items: center
+    margin-left: 4px
+
+:host(::before)
+  content: ''
+  width: 25px
+  height: 25px
+  background-color: green

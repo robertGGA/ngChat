@@ -1,0 +1,36 @@
+<tk-header>
+  <div class="header__wrapper">
+    <tk-active-users></tk-active-users>
+    <div class="chat__title">
+      <h3>
+        🦄 Team Unicorns
+      </h3>
+      <p class="chat__time">
+        last seen 45 minutes ago
+      </p>
+    </div>
+    <button (click)="openModal()">
+      <tk-icon [width]=16 [height]=16 item="kebab-horizontal"></tk-icon>
+    </button>
+  </div>
+</tk-header>
+<main class="main">
+  <p class="chat__date">
+    {{currentDate}}
+  </p>
+  <tk-chat-container></tk-chat-container>
+</main>
+
+<tk-footer>
+  <form [formGroup]="chatForm" class="input__wrapper">
+    <div class="input__menu">
+      <button>
+        <tk-icon [width]=18 [height]=18 item="smiley"></tk-icon>
+      </button>
+      <input placeholder="Write something" tkChatInput formControlName="chat"/>
+    </div>
+    <button tkKeyClick (function)="submit()" (click)="submit()">
+      <tk-icon [width]=16 [height]=16 item="paper-airplane"></tk-icon>
+    </button>
+  </form>
+</tk-footer>
