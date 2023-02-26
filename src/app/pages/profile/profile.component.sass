@@ -1,0 +1,71 @@
+@import "src/app/styles/mixins"
+
+.profile
+
+  &-container
+    max-width: 800px
+    width: 100%
+    margin: 35px auto 0 auto
+    display: flex
+    flex-direction: column
+    align-items: center
+
+  &-header
+    position: relative
+    border-radius: 8px
+    width: 100%
+    max-width: 900px
+    max-height: 250px
+
+    img
+      border-radius: 10px
+      width: 100%
+      object-fit: cover
+      height: 100%
+
+    &__content
+      border-radius: 15px
+      width: 100%
+      position: relative
+      top: -20px
+      background-color: $c-palettes-indigo-50
+
+.avatar
+  display: flex
+  align-items: center
+  justify-content: center
+  background-color: $c-palettes-indigo-50
+  width: 165px
+  height: 165px
+  border-radius: 50%
+  position: absolute
+  object-fit: cover
+  top: -95px
+
+  img
+    width: 150px
+    height: 150px
+
+
+  &__wrapper
+    display: flex
+    margin-left: 40px
+    width: 150px
+    height: 150px
+
+.background
+
+  &-button
+    border: 1px solid $c-palettes-indigo-50
+    background: white
+    padding: 10px 15px
+    right: 40px
+    top: 15px
+    border-radius: 16px
+    position: absolute
+    transition: 0.3s
+
+    &:hover
+      background: $c-palettes-indigo-400
+      border: 1px solid $c-palettes-indigo-400
+      color: white

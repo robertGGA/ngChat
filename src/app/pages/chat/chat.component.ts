@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy, OnInit, ViewChild, ChangeDetectorRef} from '@angular/core';
+import {Component, ChangeDetectionStrategy, ViewChild} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {ChatContainerComponent} from "@pages/chat/chat-container/chat-container.component";
 import {DialogService} from "@services/dialog.service";
@@ -26,7 +26,7 @@ export class ChatComponent {
 
   openModal() {
     console.log('opened');
-    this.dialogService.open(DialogMenuComponent, {data: {flag: false}})
+    this.dialogService.open(DialogMenuComponent, {data: {flag: false}});
   }
 
   submit() {

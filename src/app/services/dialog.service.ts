@@ -13,7 +13,8 @@ export interface DialogConfig {
 })
 export class DialogService {
 
-  constructor(private overlay: Overlay, private injector: Injector) {
+  constructor(private overlay: Overlay,
+              private injector: Injector) {
   }
 
   open<T>(component: ComponentType<T>, config?: DialogConfig) {
@@ -43,6 +44,11 @@ export class DialogService {
     const portal = new ComponentPortal(component, null, injector);
     overlayRef.attach(portal);
 
+    overlayRef.backdropClick().subscribe(() => {
+      overlayRef.dispose();
+    })
+
     return dialogRef;
   }
+
 }

@@ -20,18 +20,22 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {KeyClickDirective} from '@directives/key-click.directive';
 import {PortalModule} from "@angular/cdk/portal";
 import {DialogMenuComponent} from '@components/modals/dialog-menu/dialog-menu.component';
+import {SelectComponent} from '@components/ui/select/select.component';
+import {SelectChipComponent} from '@components/ui/select-chip/select-chip.component';
+import {SidebarComponent} from '@components/ui/sidebar/sidebar.component';
+import {SearchComponent} from '@components/ui/search/search.component';
+import {ChatsComponent} from '@pages/chats/chats.component';
+import {ProfileComponent} from '@app/pages/profile/profile.component';
+import {SettingsComponent} from '@pages/settings/settings.component';
+import {AnalyticsComponent} from '@pages/analytics/analytics.component';
+import {FriendsPageComponent} from '@pages/friends-page/friends-page.component';
+import {ToggleUncoverDirective} from '@directives/toggle-uncover.directive';
+import {LetDirective} from '@directives/let.directive';
+import {
+  BackgroundDialogComponent
+} from '@pages/profile/profile-components/background-dialog/background-dialog.component';
+import {CloseDialogDirective} from '@directives/close-dialog.directive';
 import {OverlayModule} from "@angular/cdk/overlay";
-import { SelectComponent } from '@components/ui/select/select.component';
-import { SelectChipComponent } from '@components/ui/select-chip/select-chip.component';
-import { SidebarComponent } from '@components/ui/sidebar/sidebar.component';
-import { SearchComponent } from '@components/ui/search/search.component';
-import { ChatsComponent } from '@pages/chats/chats.component';
-import { ProfileComponent } from '@app/pages/profile/profile.component';
-import { SettingsComponent } from '@pages/settings/settings.component';
-import { AnalyticsComponent } from '@pages/analytics/analytics.component';
-import { FriendsPageComponent } from '@pages/friends-page/friends-page.component';
-import { ToggleUncoverDirective } from '@directives/toggle-uncover.directive';
-import { LetDirective } from './directives/let.directive';
 
 @NgModule({
   declarations: [
@@ -60,7 +64,9 @@ import { LetDirective } from './directives/let.directive';
     AnalyticsComponent,
     FriendsPageComponent,
     ToggleUncoverDirective,
-    LetDirective
+    LetDirective,
+    BackgroundDialogComponent,
+    CloseDialogDirective
   ],
   imports: [
     BrowserModule,
