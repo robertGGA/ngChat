@@ -1,0 +1,18 @@
+@import 'src/app/styles/mixins.sass'
+
+\:host
+  display: flex
+  flex-direction: column
+  align-items: center
+  max-width: 700px
+
+.header
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
+  width: 100%
+
+  &-title
+    @include content-16-inter
+    color: $c-palettes-indigo-400

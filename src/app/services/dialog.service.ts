@@ -28,7 +28,6 @@ export class DialogService {
       positionStrategy,
       hasBackdrop: true,
       backdropClass: 'overlay-backdrop',
-      panelClass: 'overlay-panel'
     })
 
     const dialogRef = new DialogRef(overlayRef);

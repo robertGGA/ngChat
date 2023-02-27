@@ -36,6 +36,9 @@ import {
 } from '@pages/profile/profile-components/background-dialog/background-dialog.component';
 import {CloseDialogDirective} from '@directives/close-dialog.directive';
 import {OverlayModule} from "@angular/cdk/overlay";
+import { DialogBodyComponent } from '@components/modals/dialog-body/dialog-body.component';
+import { DialogHeaderComponent } from '@components/modals/dialog-header/dialog-header.component';
+import { BackgroundCanvasComponent } from '@pages/profile/profile-components/background-canvas/background-canvas.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +69,10 @@ import {OverlayModule} from "@angular/cdk/overlay";
     ToggleUncoverDirective,
     LetDirective,
     BackgroundDialogComponent,
-    CloseDialogDirective
+    CloseDialogDirective,
+    DialogBodyComponent,
+    DialogHeaderComponent,
+    BackgroundCanvasComponent
   ],
   imports: [
     BrowserModule,
