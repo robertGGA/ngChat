@@ -40,7 +40,6 @@ export class SearchComponent implements ControlValueAccessor {
   }
 
   public getClasses() {
-    console.log(this.value);
     if (this.touched && this.value.length > 0) {
       return 'search__wrapper search-touched'
     }
