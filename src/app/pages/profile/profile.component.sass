@@ -24,11 +24,18 @@
       height: 100%
 
     &__content
+      display: flex
       border-radius: 15px
       width: 100%
       position: relative
+      min-height: 80px
       top: -20px
       background-color: $c-palettes-indigo-50
+
+      @include for-phone-395
+        flex-direction: column
+        align-items: center
+        margin: 0
 
 .avatar
   display: flex
@@ -43,15 +50,20 @@
   top: -95px
 
   img
-    width: 150px
-    height: 150px
+    max-width: 150px
+    max-height: 150px
 
 
   &__wrapper
     display: flex
     margin-left: 40px
-    width: 150px
-    height: 150px
+    max-width: 165px
+    max-height: 165px
+    height: 100%
+    width: 100%
+
+    @include for-phone-395
+      margin: 0
 
 .background
 
@@ -69,3 +81,56 @@
       background: $c-palettes-indigo-400
       border: 1px solid $c-palettes-indigo-400
       color: white
+
+  &-empty
+    background-color: lightgray
+    border-radius: 10px
+    width: 100%
+    object-fit: cover
+    height: 250px
+
+.user
+
+  &-info
+    display: flex
+    align-items: center
+    margin-left: 30px
+    width: 100%
+    justify-content: space-between
+
+    @include for-phone-395
+      margin-left: 0
+      margin-top: 70px
+      flex-direction: column
+
+    h2
+      @include Inter
+      font-size: 25px
+      color: $c-palettes-indigo-400
+      word-break: break-word
+
+      @include for-phone-395
+        text-align: center
+        padding-bottom: 15px
+
+    &__buttons
+      display: flex
+      flex-direction: column
+      align-items: center
+      margin-right: 15px
+
+      @include for-phone-395
+        display: none
+
+      a
+        display: flex
+        border: none
+        padding: 5px
+        background: white
+        border-radius: 50%
+        transition: 0.3s
+
+        &:hover
+          color: white
+          background-color: $c-palettes-indigo-400
+

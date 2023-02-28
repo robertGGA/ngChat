@@ -1,4 +1,7 @@
-import {ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
+import {ImageCroppedEvent, LoadedImage} from "ngx-image-cropper";
+import {DIALOG_DATA} from "@utils/dialog-tokens";
+import {DialogRef} from "@utils/dialogRef";
 
 @Component({
   selector: 'tk-background-canvas',
@@ -6,18 +9,35 @@ import {ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild
   styleUrls: ['./background-canvas.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BackgroundCanvasComponent implements OnInit {
-  @ViewChild('canvas', {static: true})
-  @Input() image!: ImageData;
-  canvas!: ElementRef<HTMLCanvasElement>;
-  private ctx!: CanvasRenderingContext2D;
 
-  ngOnInit(): void {
-    this.ctx = this.canvas.nativeElement.getContext('2d')!;
+export class BackgroundCanvasComponent implements OnInit{
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+
+  constructor(@Inject(DIALOG_DATA) private dialogData: any,
+              private dialogRef: DialogRef) {
   }
 
-  animate(): void {
-    this.ctx.fillStyle = 'red';
-    this.ctx.fillRect(0, 0, 5, 5);
+  ngOnInit(): void {
+    this.imageChangedEvent = this.dialogData.data;
+  }
+
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
+    console.log(event.base64);
+  }
+  imageLoaded(image: LoadedImage) {
+    // show cropper
+  }
+  cropperReady() {
+    // cropper ready
+  }
+  loadImageFailed() {
+    // show message
+  }
+
+  log() {
+    console.log(this.croppedImage);
+    this.dialogRef.close(this.croppedImage);
   }
 }

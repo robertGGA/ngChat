@@ -1,7 +1,12 @@
 @import 'src/app/styles/mixins.sass'
 
+\:host
+  @include for-phone-395
+    display: none
+
+
 .sidebar
-  position: fixed
+  position: relative
   display: flex
   flex-direction: column
   align-items: flex-start

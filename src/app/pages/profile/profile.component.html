@@ -2,17 +2,32 @@
   <div class="profile-container">
 
     <div class="profile-header">
-      <img alt="background-img" src="assets/images/prettyback.png"/>
+      <ng-container *ngIf="getImage(); else empty">
+        <img alt="background-img" [src]="getImage()"/>
+      </ng-container>
+      <ng-template #empty>
+        <div class="background-empty"></div>
+      </ng-template>
       <button (click)="openChangeBackgroundModal()" class="background-button">
         Change background
       </button>
       <div class="profile-header__content">
         <span class="avatar__wrapper">
           <div class="avatar">
-            <img alt="avatar" src="assets/images/someuser.png"/>
+              <img alt="avatar" src="assets/images/someuser.png"/>
           </div>
         </span>
-        fsdfds
+        <div class="user-info">
+          <h2>
+            FirstName SecondName
+          </h2>
+
+          <div class="user-info__buttons">
+            <a routerLink="/settings">
+              <tk-icon width="24" height="24" item="settings"></tk-icon>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

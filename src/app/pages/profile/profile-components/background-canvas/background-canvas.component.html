@@ -1,4 +1,20 @@
+<tk-dialog-header>
 
-<canvas #canvas width="600" height="300"></canvas>
+</tk-dialog-header>
 
-<button (click)="animate()">Play</button>
+<tk-dialog-body>
+  <image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="true"
+    [aspectRatio]="4 / 2"
+    [cropperMinWidth]="700"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded($event)"
+    (cropperReady)="cropperReady()"
+    (loadImageFailed)="loadImageFailed()"
+  ></image-cropper>
+  <button (click)="log()">
+    Crop Image
+  </button>
+</tk-dialog-body>

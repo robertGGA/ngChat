@@ -39,6 +39,7 @@ import {OverlayModule} from "@angular/cdk/overlay";
 import { DialogBodyComponent } from '@components/modals/dialog-body/dialog-body.component';
 import { DialogHeaderComponent } from '@components/modals/dialog-header/dialog-header.component';
 import { BackgroundCanvasComponent } from '@pages/profile/profile-components/background-canvas/background-canvas.component';
+import {ImageCropperModule} from "ngx-image-cropper";
 
 @NgModule({
   declarations: [
@@ -74,15 +75,16 @@ import { BackgroundCanvasComponent } from '@pages/profile/profile-components/bac
     DialogHeaderComponent,
     BackgroundCanvasComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    PortalModule,
-    OverlayModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        PortalModule,
+        OverlayModule,
+        ImageCropperModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

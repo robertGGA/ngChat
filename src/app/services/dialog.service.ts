@@ -46,7 +46,6 @@ export class DialogService {
     overlayRef.backdropClick().subscribe(() => {
       overlayRef.dispose();
     })
-
     return dialogRef;
   }
 
