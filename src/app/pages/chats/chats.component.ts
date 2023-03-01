@@ -1,6 +1,7 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
+import {BehaviorSubject, takeUntil} from "rxjs";
 import {FormControl} from "@angular/forms";
+import {DestroyService} from "@services/destroy.service";
 
 @Component({
   selector: 'tk-chats',
@@ -33,11 +34,14 @@ export class ChatsComponent {
       userName: 'Someone else'
     }
   ];
+  displayChats = this.data;
 
-  constructor() {
-    this.search.valueChanges.subscribe(value => {
-      console.log(value);
-    })
+  constructor(private destroy$: DestroyService, private cdr: ChangeDetectorRef) {
+    this.search.valueChanges.pipe(takeUntil(this.destroy$))
+      .subscribe(value => {
+        this.displayChats = this.data.filter(chat => chat.userName.includes(value));
+        this.cdr.markForCheck();
+      })
   }
 
   log(event: Event) {
@@ -48,4 +52,5 @@ export class ChatsComponent {
   changeCover() {
     this.isReversed$.next(!this.isReversed$.getValue());
   }
+
 }

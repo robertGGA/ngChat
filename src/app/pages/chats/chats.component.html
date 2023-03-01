@@ -5,32 +5,39 @@
         <tk-search (click)="changeCover()" [formControl]="search" class="chats-search"></tk-search>
       </li>
       <ng-container *ngIf="!(isReversed$ | async); else reversed">
-        <a *ngFor="let chat of data" routerLink="/chat/{{chat.id}}" class="chats-item">
-          <div class="chats-item__wrapper">
-            <img alt="group avatar" class="chats-img" src="assets/images/someuser.png"/>
-            <div class="chats-item__info">
-              <p>
-                {{chat.userName}}
-              </p>
-              <span>
+        <ng-container *ngIf="displayChats.length > 0; else notFound">
+          <a *ngFor="let chat of displayChats" routerLink="/chat/{{chat.id}}" class="chats-item">
+            <div class="chats-item__wrapper">
+              <img alt="group avatar" class="chats-img" src="assets/images/someuser.png"/>
+              <div class="chats-item__info">
+                <p>
+                  {{chat.userName}}
+                </p>
+                <span>
             <img alt="last message avatar" class="user-img" src="assets/images/someuser.png">
             Chat #1
           </span>
+              </div>
             </div>
-          </div>
-          <div class="button-wrapper">
-            <button (click)="log($event)">
-              <tk-icon width="24" height="16" item="meatballs-menu"></tk-icon>
-            </button>
-          </div>
-        </a>
+            <div class="button-wrapper">
+              <button (click)="log($event)">
+                <tk-icon width="24" height="16" item="meatballs-menu"></tk-icon>
+              </button>
+            </div>
+          </a>
+        </ng-container>
       </ng-container>
     </ul>
   </div>
 </tk-page>
 
+<ng-template #notFound>
+  <li class="chats-empty">
+    Found 0 coincidences. Try again
+  </li>
+</ng-template>
+
 <ng-template #reversed>
-<div>
-  fsfd
-</div>
+  <tk-nav-chips></tk-nav-chips>
+  <router-outlet></router-outlet>
 </ng-template>

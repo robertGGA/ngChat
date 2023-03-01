@@ -40,6 +40,10 @@ import { DialogBodyComponent } from '@components/modals/dialog-body/dialog-body.
 import { DialogHeaderComponent } from '@components/modals/dialog-header/dialog-header.component';
 import { BackgroundCanvasComponent } from '@pages/profile/profile-components/background-canvas/background-canvas.component';
 import {ImageCropperModule} from "ngx-image-cropper";
+import { SpamComponent } from '@pages/chats/components/spam/spam.component';
+import { ArchiveComponent } from '@pages/chats/components/archive/archive.component';
+import { SkeletonComponent } from '@components/ui/skeleton/skeleton.component';
+import { NavChipsComponent } from '@pages/chats/components/nav-chips/nav-chips.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +77,11 @@ import {ImageCropperModule} from "ngx-image-cropper";
     CloseDialogDirective,
     DialogBodyComponent,
     DialogHeaderComponent,
-    BackgroundCanvasComponent
+    BackgroundCanvasComponent,
+    SpamComponent,
+    ArchiveComponent,
+    SkeletonComponent,
+    NavChipsComponent
   ],
     imports: [
         BrowserModule,

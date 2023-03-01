@@ -7,6 +7,8 @@ import {SettingsComponent} from "@pages/settings/settings.component";
 import {ProfileComponent} from "@pages/profile/profile.component";
 import {AnalyticsComponent} from "@pages/analytics/analytics.component";
 import {FriendsPageComponent} from "@pages/friends-page/friends-page.component";
+import {ArchiveComponent} from "@pages/chats/components/archive/archive.component";
+import {SpamComponent} from "@pages/chats/components/spam/spam.component";
 
 const routes: Routes = [
   {
@@ -15,7 +17,17 @@ const routes: Routes = [
   },
   {
     path: 'chats',
-    component: ChatsComponent
+    component: ChatsComponent,
+    children: [
+      {
+        path: 'archive',
+        component: ArchiveComponent
+      },
+      {
+        path: 'spam',
+        component: SpamComponent
+      }
+    ]
   },
   {
     path: 'settings',

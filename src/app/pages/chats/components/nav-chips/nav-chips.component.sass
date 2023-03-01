@@ -1,0 +1,22 @@
+@import "src/app/styles/mixins"
+
+
+nav
+  padding: 0 25px
+  margin: 25px 0
+  display: flex
+  align-items: center
+  width: 100%
+
+.chip
+  padding: 10px 15px
+  background-color: white
+  border-radius: 8px
+  font-weight: 600
+  margin-right: 8px
+  @include Inter
+  transition: 0.3s
+
+  &:hover
+    background-color: $c-palettes-indigo-400
+    color: white
