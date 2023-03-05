@@ -42,6 +42,6 @@
 
 <ng-template #reversed>
   <tk-employee-list [employees]="employeeList" scrollTracker (onEndHandler)="updateEmployees()"></tk-employee-list>
-  <tk-nav-chips></tk-nav-chips>
+  <tk-nav-chips (returnHandler)="changeCover()"></tk-nav-chips>
   <router-outlet></router-outlet>
 </ng-template>

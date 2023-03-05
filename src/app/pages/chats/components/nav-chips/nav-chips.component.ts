@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'tk-nav-chips',
@@ -7,5 +7,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavChipsComponent {
+
+  @Output('returnHandler') toReturn = new EventEmitter();
+
+  getBack() {
+    this.toReturn.emit();
+  }
 
 }
