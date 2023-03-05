@@ -4,7 +4,7 @@ import {
   ChangeDetectorRef,
   Component
 } from '@angular/core';
-import {BehaviorSubject, Observable, takeUntil} from "rxjs";
+import {BehaviorSubject, takeUntil} from "rxjs";
 import {FormControl} from "@angular/forms";
 import {DestroyService} from "@services/destroy.service";
 import {data} from "@utils/mockedValues";
@@ -20,10 +20,8 @@ import {ChatsService} from "@services/chats.service";
 export class ChatsComponent implements AfterViewInit {
   isReversed$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   search: FormControl = new FormControl('')
-  employees$!: Observable<Array<FriendShortType>>
   employeeList: Array<FriendShortType> = [];
   displayChats = data;
-
 
   constructor(private destroy$: DestroyService,
               private cdr: ChangeDetectorRef,
@@ -55,12 +53,12 @@ export class ChatsComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     // const count = Math.floor((this.elementEmployees.nativeElement.offsetWidth - 50) / 65) * 2;
-    this.employees$ = this.chatService.getEmployees('2', 0, 1, 11);
-    this.employees$.pipe().subscribe(value => {
-      this.employeeList = this.employeeList.concat(value);
-      console.log(this.employeeList);
-    })
-    this.cdr.markForCheck();
+    this.chatService.getEmployees('2', 0, 1, 11).pipe()
+      .subscribe(value => {
+        this.employeeList = this.employeeList.concat(value);
+        this.cdr.markForCheck();
+
+      })
   }
 
 }
