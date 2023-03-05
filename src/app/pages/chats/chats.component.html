@@ -20,7 +20,10 @@
               </div>
             </div>
             <div class="button-wrapper">
-              <button (click)="log($event)">
+              <p>
+                23 feb
+              </p>
+              <button (click)="openMeatBalls($event)">
                 <tk-icon width="24" height="16" item="meatballs-menu"></tk-icon>
               </button>
             </div>
@@ -38,6 +41,7 @@
 </ng-template>
 
 <ng-template #reversed>
+  <tk-employee-list [employees]="employeeList" scrollTracker (onEndHandler)="updateEmployees()"></tk-employee-list>
   <tk-nav-chips></tk-nav-chips>
   <router-outlet></router-outlet>
 </ng-template>

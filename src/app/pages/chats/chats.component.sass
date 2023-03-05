@@ -11,9 +11,10 @@
 
   &-list
     width: 100%
-    min-height: 90vh
+    height: 700px
     border-radius: 8px
     background-color: $c-palettes-indigo-50
+    overflow-y: scroll
 
     &__wrapper
       display: flex
@@ -88,6 +89,14 @@
       color: inherit
       border: none
       background: none
+      transition: 0.2s
 
       &:hover
-        color: white
+        color: $c-dark-hover-sub
+
+    p
+      margin-top: 4px
+      margin-right: 5px
+      font-weight: 500
+      font-size: 12px
+      opacity: 0.4

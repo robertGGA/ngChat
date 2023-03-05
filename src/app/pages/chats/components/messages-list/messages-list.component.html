@@ -1,0 +1,11 @@
+<ng-container *ngIf="data.length; else emptyList">
+  <div *ngFor="let message of data">
+    {{message}}
+  </div>
+</ng-container>
+
+<ng-template #emptyList>
+  <p>
+    Nothing here
+  </p>
+</ng-template>

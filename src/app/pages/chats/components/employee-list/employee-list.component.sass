@@ -1,0 +1,31 @@
+@import "src/app/styles/mixins"
+
+\:host
+  display: flex
+  flex-direction: row
+  align-items: center
+  overflow-x: scroll
+  padding: 0 25px
+  margin-top: 15px
+
+  @include scrollBar
+
+.employee
+  &-container
+    display: flex
+    flex-direction: column-reverse
+    align-items: center
+    margin-right: 25px
+    margin-bottom: 8px
+    max-width: 65px
+    width: 65px
+
+    &:last-child
+      margin-right: 0
+
+    img
+      width: 40px
+      height: 40px
+
+  &-username
+    margin-top: 6px

@@ -1,0 +1,7 @@
+<a routerLink="/chat/{{emp.id}}" class="employee-container" *ngFor="let emp of employeesArray">
+  <p class="employee-username">
+    {{emp.firstName + ' ' +  emp.secondName}}
+  </p>
+  <img [src]="emp.img" alt="{{emp.firstName + emp.secondName}}"/>
+</a>
+

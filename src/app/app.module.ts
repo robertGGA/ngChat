@@ -36,14 +36,21 @@ import {
 } from '@pages/profile/profile-components/background-dialog/background-dialog.component';
 import {CloseDialogDirective} from '@directives/close-dialog.directive';
 import {OverlayModule} from "@angular/cdk/overlay";
-import { DialogBodyComponent } from '@components/modals/dialog-body/dialog-body.component';
-import { DialogHeaderComponent } from '@components/modals/dialog-header/dialog-header.component';
-import { BackgroundCanvasComponent } from '@pages/profile/profile-components/background-canvas/background-canvas.component';
+import {DialogBodyComponent} from '@components/modals/dialog-body/dialog-body.component';
+import {DialogHeaderComponent} from '@components/modals/dialog-header/dialog-header.component';
+import {
+  BackgroundCanvasComponent
+} from '@pages/profile/profile-components/background-canvas/background-canvas.component';
 import {ImageCropperModule} from "ngx-image-cropper";
-import { SpamComponent } from '@pages/chats/components/spam/spam.component';
-import { ArchiveComponent } from '@pages/chats/components/archive/archive.component';
-import { SkeletonComponent } from '@components/ui/skeleton/skeleton.component';
-import { NavChipsComponent } from '@pages/chats/components/nav-chips/nav-chips.component';
+import {SpamComponent} from '@pages/chats/components/spam/spam.component';
+import {ArchiveComponent} from '@pages/chats/components/archive/archive.component';
+import {SkeletonComponent} from '@components/ui/skeleton/skeleton.component';
+import {NavChipsComponent} from '@pages/chats/components/nav-chips/nav-chips.component';
+import {LinkDisabledDirective} from '@directives/link-disabled.directive';
+import {MessagesListComponent} from '@pages/chats/components/messages-list/messages-list.component';
+import {EmployeeListComponent} from '@pages/chats/components/employee-list/employee-list.component';
+import {CommonModule} from "@angular/common";
+import {ScrollTrackerDirective} from '@directives/scroll-tracker.directive';
 
 @NgModule({
   declarations: [
@@ -81,18 +88,23 @@ import { NavChipsComponent } from '@pages/chats/components/nav-chips/nav-chips.c
     SpamComponent,
     ArchiveComponent,
     SkeletonComponent,
-    NavChipsComponent
+    NavChipsComponent,
+    LinkDisabledDirective,
+    MessagesListComponent,
+    EmployeeListComponent,
+    ScrollTrackerDirective
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        ReactiveFormsModule,
-        BrowserAnimationsModule,
-        PortalModule,
-        OverlayModule,
-        ImageCropperModule
-    ],
+  imports: [
+    CommonModule,
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    PortalModule,
+    OverlayModule,
+    ImageCropperModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
