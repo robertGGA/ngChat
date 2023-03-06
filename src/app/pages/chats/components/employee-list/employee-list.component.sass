@@ -12,6 +12,7 @@
 
 .employee
   &-container
+    position: relative
     display: flex
     flex-direction: column-reverse
     align-items: center
@@ -19,6 +20,14 @@
     margin-bottom: 8px
     max-width: 65px
     width: 65px
+    transition: 0.3s
+
+    &:hover
+
+      & img
+        filter: brightness(0.4)
+
+
 
     &:last-child
       margin-right: 0

@@ -1,7 +1,5 @@
 <ng-container *ngIf="data.length; else emptyList">
-  <div *ngFor="let message of data">
-    {{message}}
-  </div>
+  <tk-list-item class="spam" *ngFor="let spam of data" [item]="spam"></tk-list-item>
 </ng-container>
 
 <ng-template #emptyList>

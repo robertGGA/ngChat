@@ -42,8 +42,8 @@ import {
   BackgroundCanvasComponent
 } from '@pages/profile/profile-components/background-canvas/background-canvas.component';
 import {ImageCropperModule} from "ngx-image-cropper";
-import {SpamComponent} from '@pages/chats/components/spam/spam.component';
-import {ArchiveComponent} from '@pages/chats/components/archive/archive.component';
+import {SpamComponent} from '@pages/chats/spam/spam.component';
+import {ArchiveComponent} from '@pages/chats/archive/archive.component';
 import {SkeletonComponent} from '@components/ui/skeleton/skeleton.component';
 import {NavChipsComponent} from '@pages/chats/components/nav-chips/nav-chips.component';
 import {LinkDisabledDirective} from '@directives/link-disabled.directive';
@@ -51,6 +51,7 @@ import {MessagesListComponent} from '@pages/chats/components/messages-list/messa
 import {EmployeeListComponent} from '@pages/chats/components/employee-list/employee-list.component';
 import {CommonModule} from "@angular/common";
 import {ScrollTrackerDirective} from '@directives/scroll-tracker.directive';
+import { ListItemComponent } from '@pages/chats/components/list-item/list-item.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import {ScrollTrackerDirective} from '@directives/scroll-tracker.directive';
     LinkDisabledDirective,
     MessagesListComponent,
     EmployeeListComponent,
-    ScrollTrackerDirective
+    ScrollTrackerDirective,
+    ListItemComponent
   ],
   imports: [
     CommonModule,

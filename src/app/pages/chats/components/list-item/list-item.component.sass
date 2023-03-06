@@ -1,0 +1,21 @@
+@import "src/app/styles/mixins"
+
+.link
+  display: flex
+  flex-direction: column
+  padding: 7px 10px
+  border: 1px solid $c-dark-hover-sub
+  border-radius: 8px
+  @include Inter
+  color: black
+  transition: 0.3s
+
+  &-name
+    font-weight: 500
+    font-size: 17px
+
+  &:hover
+    background-color: white
+    border: 1px solid white
+
+

@@ -57,7 +57,6 @@ export class ChatsComponent implements AfterViewInit {
       .subscribe(value => {
         this.employeeList = this.employeeList.concat(value);
         this.cdr.markForCheck();
-
       })
   }
 

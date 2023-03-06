@@ -1,7 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  Input
+  Input, OnInit
 } from '@angular/core';
 import {FriendShortType} from "@app/models";
 
@@ -11,11 +11,15 @@ import {FriendShortType} from "@app/models";
   styleUrls: ['./employee-list.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EmployeeListComponent {
+export class EmployeeListComponent implements OnInit{
 
   @Input('employees') employeesArray!: Array<FriendShortType>;
 
   constructor() {
+  }
+
+  ngOnInit(): void {
+    console.log(this.employeesArray);
   }
 
 

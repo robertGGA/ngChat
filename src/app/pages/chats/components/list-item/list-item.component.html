@@ -1,0 +1,12 @@
+<a class="link" [routerLink]="'/chat/' + item.chatId">
+  <span>
+    <img alt="avatar" [src]="item.image"/>
+    <span class="link-name">
+        {{item.userName}}
+    </span>
+  </span>
+
+  <p>
+    {{item.lastMessage}}
+  </p>
+</a>
