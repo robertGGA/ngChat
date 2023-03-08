@@ -10,6 +10,8 @@ import {DestroyService} from "@services/destroy.service";
 import {data} from "@utils/mockedValues";
 import {FriendShortType} from "@app/models";
 import {ChatsService} from "@services/chats.service";
+import {PopoverDirective} from "@directives/popover.directive";
+import {PopupComponent} from "@components/modals/popup/popup.component";
 
 @Component({
   selector: 'tk-chats',

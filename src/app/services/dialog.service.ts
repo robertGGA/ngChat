@@ -3,6 +3,8 @@ import {ComponentType, Overlay} from "@angular/cdk/overlay";
 import {ComponentPortal} from "@angular/cdk/portal";
 import {DialogRef} from "@utils/dialogRef";
 import {DIALOG_DATA} from "@utils/dialog-tokens";
+import {takeUntil} from "rxjs";
+import {DestroyService} from "@services/destroy.service";
 
 export interface DialogConfig {
   data?: any;
@@ -14,7 +16,8 @@ export interface DialogConfig {
 export class DialogService {
 
   constructor(private overlay: Overlay,
-              private injector: Injector) {
+              private injector: Injector,
+              private destroy$: DestroyService) {
   }
 
   open<T>(component: ComponentType<T>, config?: DialogConfig) {
@@ -43,7 +46,7 @@ export class DialogService {
     const portal = new ComponentPortal(component, null, injector);
     overlayRef.attach(portal);
 
-    overlayRef.backdropClick().subscribe(() => {
+    overlayRef.backdropClick().pipe(takeUntil(this.destroy$)).subscribe(() => {
       overlayRef.dispose();
     })
     return dialogRef;

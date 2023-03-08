@@ -23,7 +23,7 @@
               <p>
                 23 feb
               </p>
-              <button (click)="openMeatBalls($event)">
+              <button rggPopover [popoverTrigger]="popup">
                 <tk-icon width="24" height="16" item="meatballs-menu"></tk-icon>
               </button>
             </div>
@@ -44,4 +44,22 @@
   <tk-employee-list [employees]="employeeList" scrollTracker (onEndHandler)="updateEmployees()"></tk-employee-list>
   <tk-nav-chips (returnHandler)="changeCover()"></tk-nav-chips>
   <router-outlet></router-outlet>
+</ng-template>
+
+<ng-template #popup>
+ <rgg-popup class="popover__wrapper">
+   <button class="popover">
+     Delete chat
+   </button>
+   <button class="popover">
+     Archive chat
+   </button>
+   <button class="popover">
+     Add to spam
+   </button>
+
+   <button class="popover">
+     Pin chat
+   </button>
+ </rgg-popup>
 </ng-template>
