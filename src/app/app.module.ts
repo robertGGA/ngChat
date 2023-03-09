@@ -52,8 +52,8 @@ import {EmployeeListComponent} from '@pages/chats/components/employee-list/emplo
 import {CommonModule} from "@angular/common";
 import {ScrollTrackerDirective} from '@directives/scroll-tracker.directive';
 import { ListItemComponent } from '@pages/chats/components/list-item/list-item.component';
-import { PopoverDirective } from './directives/popover.directive';
-import { PopupComponent } from './components/modals/popup/popup.component';
+import { PopoverDirective } from '@directives/popover.directive';
+import { PopupComponent } from '@components/modals/popup/popup.component';
 
 @NgModule({
   declarations: [

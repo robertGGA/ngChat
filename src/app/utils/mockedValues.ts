@@ -300,8 +300,11 @@ export const mockedShortEmpArray = [
     "img": "assets/images/someuser.png"
   }
 ]
-
-export const data = [
+export interface IChat {
+  id: number,
+  userName: string
+};
+export const data: Array<IChat> = [
   {
     id: 1,
     userName: 'Anton Nikitin'

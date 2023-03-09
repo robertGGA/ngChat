@@ -2,12 +2,12 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  Component
+  Component, ViewChildren
 } from '@angular/core';
 import {BehaviorSubject, takeUntil} from "rxjs";
 import {FormControl} from "@angular/forms";
 import {DestroyService} from "@services/destroy.service";
-import {data} from "@utils/mockedValues";
+import {data, IChat} from "@utils/mockedValues";
 import {FriendShortType} from "@app/models";
 import {ChatsService} from "@services/chats.service";
 import {PopoverDirective} from "@directives/popover.directive";
@@ -24,6 +24,9 @@ export class ChatsComponent implements AfterViewInit {
   search: FormControl = new FormControl('')
   employeeList: Array<FriendShortType> = [];
   displayChats = data;
+  activeChat: IChat | null = null;
+
+  @ViewChildren(PopoverDirective) popOverDirective: any;
 
   constructor(private destroy$: DestroyService,
               private cdr: ChangeDetectorRef,
@@ -55,11 +58,21 @@ export class ChatsComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     // const count = Math.floor((this.elementEmployees.nativeElement.offsetWidth - 50) / 65) * 2;
-    this.chatService.getEmployees('2', 0, 1, 11).pipe()
+    this.chatService.getEmployees('2', 0, 1, 11)
+      .pipe(takeUntil(this.destroy$))
       .subscribe(value => {
         this.employeeList = this.employeeList.concat(value);
         this.cdr.markForCheck();
       })
+  }
+
+  onEnterMeatBall(chat: IChat) {
+    this.activeChat = chat;
+  }
+
+  deleteChat() {
+    console.log(this.activeChat);
+    this.displayChats = this.displayChats.filter(chat => chat.id !== this.activeChat?.id)
   }
 
 }

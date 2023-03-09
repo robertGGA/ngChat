@@ -23,7 +23,7 @@
               <p>
                 23 feb
               </p>
-              <button rggPopover [popoverTrigger]="popup">
+              <button (mouseenter)="onEnterMeatBall(chat)" rggPopover [popoverTrigger]="popup">
                 <tk-icon width="24" height="16" item="meatballs-menu"></tk-icon>
               </button>
             </div>
@@ -48,7 +48,7 @@
 
 <ng-template #popup>
  <rgg-popup class="popover__wrapper">
-   <button class="popover">
+   <button (click)="deleteChat()" class="popover">
      Delete chat
    </button>
    <button class="popover">
@@ -57,7 +57,6 @@
    <button class="popover">
      Add to spam
    </button>
-
    <button class="popover">
      Pin chat
    </button>
