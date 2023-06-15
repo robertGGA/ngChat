@@ -30,26 +30,26 @@ const routes: Routes = [
       {
         path: 'friends',
         component: FriendsPageComponent
-      }
+      },
+      {
+        path: 'chats',
+        component: ChatsComponent,
+        children: [
+          {
+            path: 'archive',
+            component: ArchiveComponent
+          },
+          {
+            path: 'spam',
+            component: SpamComponent
+          }
+        ]
+      },
     ]
   },
   {
     path: 'chat/:id',
     component: ChatComponent
-  },
-  {
-    path: 'chats',
-    component: ChatsComponent,
-    children: [
-      {
-        path: 'archive',
-        component: ArchiveComponent
-      },
-      {
-        path: 'spam',
-        component: SpamComponent
-      }
-    ]
   },
 ];
 

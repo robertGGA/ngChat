@@ -26,7 +26,10 @@ export class ProfileComponent {
     this.dialogService.open(BackgroundDialogComponent).afterClosed()
       .pipe(takeUntil(this.destroy$))
       .subscribe(image => {
-        this.image = this._sanitizer.bypassSecurityTrustResourceUrl(image);
+        console.log(image);
+        if (image) {
+          this.image = this._sanitizer.bypassSecurityTrustResourceUrl(image);
+        }
         this.cdr.markForCheck();
       });
   }
