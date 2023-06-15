@@ -26,8 +26,8 @@ export class ProfileComponent {
     this.dialogService.open(BackgroundDialogComponent).afterClosed()
       .pipe(takeUntil(this.destroy$))
       .subscribe(image => {
-        console.log(image);
-        if (image) {
+
+        if (typeof image === 'string') {
           this.image = this._sanitizer.bypassSecurityTrustResourceUrl(image);
         }
         this.cdr.markForCheck();

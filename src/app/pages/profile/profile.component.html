@@ -4,9 +4,6 @@
     <ng-container *ngIf="getImage(); else empty">
       <img alt="background-img" [src]="getImage()"/>
     </ng-container>
-    <ng-template #empty>
-      <div class="background-empty"></div>
-    </ng-template>
     <button (click)="openChangeBackgroundModal()" class="background-button">
       Change background
     </button>
@@ -30,3 +27,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #empty>
+  <div class="background-empty"></div>
+</ng-template>
