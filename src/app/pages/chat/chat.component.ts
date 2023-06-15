@@ -25,7 +25,6 @@ export class ChatComponent {
   }
 
   openModal() {
-    console.log('opened');
     this.dialogService.open(DialogMenuComponent, {data: {flag: false}});
   }
 

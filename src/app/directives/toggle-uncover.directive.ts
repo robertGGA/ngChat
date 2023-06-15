@@ -7,7 +7,8 @@ import {BehaviorSubject} from "rxjs";
 export class ToggleUncoverDirective {
 
   isOpen$ = new BehaviorSubject(false);
-  constructor() { }
+  constructor() {
+  }
 
   @Input() set uncoverObj(value: boolean) {
     this.isOpen$.next(value);

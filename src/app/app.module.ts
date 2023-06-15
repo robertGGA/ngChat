@@ -54,6 +54,7 @@ import {ScrollTrackerDirective} from '@directives/scroll-tracker.directive';
 import { ListItemComponent } from '@pages/chats/components/list-item/list-item.component';
 import { PopoverDirective } from '@directives/popover.directive';
 import { PopupComponent } from '@components/modals/popup/popup.component';
+import { PrivateLayoutComponent } from './shared/private-layout/private-layout.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,8 @@ import { PopupComponent } from '@components/modals/popup/popup.component';
     ScrollTrackerDirective,
     ListItemComponent,
     PopoverDirective,
-    PopupComponent
+    PopupComponent,
+    PrivateLayoutComponent
   ],
   imports: [
     CommonModule,

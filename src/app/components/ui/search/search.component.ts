@@ -48,7 +48,6 @@ export class SearchComponent implements ControlValueAccessor {
 
   registerOnChange(fn: any): void {
     this.onChange = fn;
-    console.log(fn);
   }
 
   registerOnTouched(fn: any): void {

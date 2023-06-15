@@ -1,34 +1,32 @@
-<tk-page>
-  <div class="profile-container">
+<div class="profile-container">
 
-    <div class="profile-header">
-      <ng-container *ngIf="getImage(); else empty">
-        <img alt="background-img" [src]="getImage()"/>
-      </ng-container>
-      <ng-template #empty>
-        <div class="background-empty"></div>
-      </ng-template>
-      <button (click)="openChangeBackgroundModal()" class="background-button">
-        Change background
-      </button>
-      <div class="profile-header__content">
+  <div class="profile-header">
+    <ng-container *ngIf="getImage(); else empty">
+      <img alt="background-img" [src]="getImage()"/>
+    </ng-container>
+    <ng-template #empty>
+      <div class="background-empty"></div>
+    </ng-template>
+    <button (click)="openChangeBackgroundModal()" class="background-button">
+      Change background
+    </button>
+    <div class="profile-header__content">
         <span class="avatar__wrapper">
           <div class="avatar">
               <img alt="avatar" src="assets/images/someuser.png"/>
           </div>
         </span>
-        <div class="user-info">
-          <h2>
-            John Doe
-          </h2>
+      <div class="user-info">
+        <h2>
+          John Doe
+        </h2>
 
-          <div class="user-info__buttons">
-            <a routerLink="/settings">
-              <tk-icon width="24" height="24" item="settings"></tk-icon>
-            </a>
-          </div>
+        <div class="user-info__buttons">
+          <a routerLink="/settings">
+            <tk-icon width="24" height="24" item="settings"></tk-icon>
+          </a>
         </div>
       </div>
     </div>
   </div>
-</tk-page>
+</div>

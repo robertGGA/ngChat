@@ -14,7 +14,7 @@ import {linkAnimations, sideBarAnimation} from "@components/animations/messageCr
 })
 export class SidebarComponent {
   searchInput: FormControl = new FormControl('');
-  isOpen$!: BehaviorSubject<boolean>;
+  isOpen$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(public toggleUncover: ToggleUncoverDirective) {
     this.isOpen$ = this.toggleUncover.isOpen$;

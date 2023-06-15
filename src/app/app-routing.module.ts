@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {ChatComponent} from "@pages/chat/chat.component";
-import {MainComponent} from "@pages/main/chats-page.component";
 import {ChatsComponent} from "@pages/chats/chats.component";
 import {SettingsComponent} from "@pages/settings/settings.component";
 import {ProfileComponent} from "@pages/profile/profile.component";
@@ -9,11 +8,34 @@ import {AnalyticsComponent} from "@pages/analytics/analytics.component";
 import {FriendsPageComponent} from "@pages/friends-page/friends-page.component";
 import {ArchiveComponent} from "@pages/chats/archive/archive.component";
 import {SpamComponent} from "@pages/chats/spam/spam.component";
+import {PrivateLayoutComponent} from "@app/shared/private-layout/private-layout.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent
+    component: PrivateLayoutComponent,
+    children: [
+      {
+        path: 'settings',
+        component: SettingsComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
+      },
+      {
+        path: 'analytics',
+        component: AnalyticsComponent
+      },
+      {
+        path: 'friends',
+        component: FriendsPageComponent
+      }
+    ]
+  },
+  {
+    path: 'chat/:id',
+    component: ChatComponent
   },
   {
     path: 'chats',
@@ -29,26 +51,7 @@ const routes: Routes = [
       }
     ]
   },
-  {
-    path: 'settings',
-    component: SettingsComponent
-  },
-  {
-    path: 'profile',
-    component: ProfileComponent
-  },
-  {
-    path: 'analytics',
-    component: AnalyticsComponent
-  },
-  {
-    path: 'chat/:id',
-    component: ChatComponent
-  },
-  {
-    path: 'friends',
-    component: FriendsPageComponent
-  }];
+];
 
 
 @NgModule({
