@@ -1,8 +1,9 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {FormControl} from "@angular/forms";
 import {ToggleUncoverDirective} from "@directives/toggle-uncover.directive";
-import {BehaviorSubject} from "rxjs";
+import {Observable} from "rxjs";
 import {linkAnimations, sideBarAnimation} from "@components/animations/messageCreateAnimation";
+import {MenuService} from "@services/menu.service";
 
 @Component({
   selector: 'tk-sidebar',
@@ -14,17 +15,19 @@ import {linkAnimations, sideBarAnimation} from "@components/animations/messageCr
 })
 export class SidebarComponent {
   searchInput: FormControl = new FormControl('');
-  isOpen$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  constructor(public toggleUncover: ToggleUncoverDirective) {
-    this.isOpen$ = this.toggleUncover.isOpen$;
+  constructor(private menuService: MenuService) {
+  }
+
+  get isOpen$(): Observable<boolean> {
+    return this.menuService.isOpened$;
   }
 
   getState() {
-    return this.isOpen$.value ? 'in' : 'out';
+    return this.menuService.isOpened ? 'in' : 'out';
   }
 
   toggle() {
-    this.toggleUncover.toggle();
+    this.menuService.toggle();
   }
 }
