@@ -5,7 +5,7 @@
   </button>
   <div class="user-info__container">
     <a class="link-profile" routerLink="/profile">
-      <img src="assets/images/someuser.png"/>
+      <img alt="user-photo" src="assets/images/someuser.png"/>
     </a>
     <span class="user-info" *ngIf="!isCollapsed">
       <p>
@@ -16,7 +16,7 @@
       </p>
     </span>
   </div>
-  <nav class="nav">
+  <nav class="nav" *ngLet="isOpen$ | async as isCollapsed">
     <div>
       <tk-search [formControl]="searchInput" placeholder="Search..."></tk-search>
       <a class="link" routerLink="/chats" routerLinkActive="link-active">

@@ -2,7 +2,7 @@
   <div class="chats-list__wrapper">
     <ul class="chats-list">
       <li class="chats-search__wrapper">
-        <tk-search (click)="changeCover()" [formControl]="search" class="chats-search"></tk-search>
+        <tk-search placeholder="Double click for more options..." (dblclick)="changeCover()" [formControl]="search" class="chats-search"></tk-search>
       </li>
       <ng-container *ngIf="!(isReversed$ | async); else reversed">
         <ng-container *ngIf="displayChats.length > 0; else notFound">

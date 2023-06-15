@@ -1,4 +1,5 @@
 @import 'src/app/styles/mixins.sass'
+@import "src/app/styles/variables"
 
 \:host
   @include for-phone-395
@@ -18,6 +19,7 @@
   height: 100%
   transition: 0.2s ease
   z-index: 2
+  @include box-shadow-15
 
   &-collapsed
     transition: width 1s ease-in-out
@@ -119,6 +121,7 @@ button.link
   position: absolute
   right: -14px
   transition: 0.3s
+  @include box-shadow-15
 
   &:hover
     background: $c-palettes-indigo-50

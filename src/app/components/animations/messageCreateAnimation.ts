@@ -20,25 +20,17 @@ export const sideBarAnimation = trigger('slideInOut', [
   transition('out => in', animate('400ms ease-in-out'))
 ]);
 
-export const linkAnimations =  trigger(
+export const linkAnimations = trigger(
   'inOutAnimation',
   [
-    transition(
-      ':enter',
-      [
-        style({opacity: 0 }),
-        animate('1s ease-out',
-          style({opacity: 1 }))
-      ]
-    ),
-    transition(
-      ':leave',
-      [
-        style({opacity: 1 }),
-        animate('1s ease-in',
-          style({opacity: 0 }))
-      ]
-    )
+    state('in', style({
+      opacity: 1, fontSize: 0
+    })),
+    state('out', style({
+      opacity: 1, fontSize: 14
+    })),
+    transition('in => out', animate('600ms ease-in-out')),
+    transition('out => in', animate('600ms ease-in-out'))
   ]
 )
 
