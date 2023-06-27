@@ -46,6 +46,10 @@ export class ChatsComponent implements AfterViewInit {
     this.isReversed$.next(!this.isReversed$.getValue());
   }
 
+  get isReversed(): boolean {
+    return this.isReversed$.value;
+  }
+
   updateEmployees() {
     this.chatService.getEmployees('2', 12, 1, 22)
       .pipe(takeUntil(this.destroy$))

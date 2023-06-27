@@ -1,8 +1,15 @@
 <div class="chats-list__wrapper">
   <ul class="chats-list">
     <li class="chats-search__wrapper">
-      <tk-search placeholder="Double click for more options..." (dblclick)="changeCover()" [formControl]="search"
+      <tk-search *ngIf="!isReversed" placeholder="Double click for more options..." (dblclick)="changeCover()"
+                 [formControl]="search"
                  class="chats-search"></tk-search>
+      <button class="button-return" *ngIf="isReversed" (click)="changeCover()">
+        <tk-icon class="button-return-icon" width="24" height="24" item="arrow"></tk-icon>
+        <span>
+          To messages
+        </span>
+      </button>
     </li>
     <ng-container *ngIf="!(isReversed$ | async); else reversed">
       <ng-container *ngIf="displayChats.length > 0; else notFound">
@@ -40,6 +47,9 @@
 </ng-template>
 
 <ng-template #reversed>
+  <label class="friends__label underline">
+    Your friends
+  </label>
   <tk-employee-list [employees]="employeeList" scrollTracker (onEndHandler)="updateEmployees()"></tk-employee-list>
   <tk-nav-chips (returnHandler)="changeCover()"></tk-nav-chips>
   <router-outlet></router-outlet>
